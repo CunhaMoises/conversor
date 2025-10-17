@@ -16,11 +16,11 @@
             <div class="item1">
                 <div class="lado-a-lado">
                     <h3>Salário 1</h3>
-                    <input class="input1" type="number" placeholder="Digite o Salário">
+                    <input class="input" id="input1" name="salário1" type="text" placeholder="Digite o Salário">
                 </div>
                 <div class="lado-a-lado">
                     <h3>Salário 2</h3>
-                    <input class="input2" type="number" placeholder="Digite o Salário">
+                    <input class="input" id="input2" type="text" placeholder="Digite o Salário">
 
                 </div>
 
@@ -48,7 +48,8 @@
         <p class="p2">ou</p>
         <div class="value-item">
             <h2>Valor do item</h2>
-            <input class="input-valor-item" type="number" placeholder="Digite o valor do item">
+            <input class="input" id="input-valor-item" type="text" placeholder="Digite o valor do item">
+            <button class="button">Converter</button>
         </div>
         <div class="porcentagem-salario">
             <p class="p3">80.000 equivalem a 55% do salário 1</p>
@@ -72,7 +73,7 @@
             </div>
         </div>
     </main>
-
+    <script src="https://unpkg.com/inputmask"></script>
     <script src="index.js"></script>
 </body>
 </html>

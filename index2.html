@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo com Inputmask</title>
+</head>
+<body style="font-family: Arial; padding: 20px;">
+
+  <h2>Calcular porcentagem do salário</h2>
+
+  <label>Salário:</label><br>
+  <input id="salario" type="text" placeholder="Digite o salário"><br><br>
+
+  <label>Porcentagem (%):</label><br>
+  <input id="porcentagem" type="number" placeholder="Digite a porcentagem"><br><br>
+
+  <button id="btnCalcular">Calcular</button>
+
+  <p id="resultado" style="margin-top: 20px; font-size: 18px;"></p>
+
+  <!-- Biblioteca Inputmask -->
+  <script src="https://unpkg.com/inputmask"></script>
+
+  <script>
+    // Seleciona os elementos
+    const inputSalario = document.getElementById('salario');
+    const inputPorcentagem = document.getElementById('porcentagem');
+    const pResultado = document.getElementById('resultado');
+    const btn = document.getElementById('btnCalcular');
+
+    // Aplica máscara de moeda no input do salário
+    Inputmask('decimal', {
+      alias: 'numeric',
+      groupSeparator: '.',
+      radixPoint: ',',
+      digits: 2,          // duas casas decimais
+      autoGroup: true,
+      rightAlign: false,
+      allowMinus: false
+    }).mask(inputSalario);
+
+    // Evento de clique no botão
+    btn.addEventListener('click', () => {
+      // Pega o valor do input formatado (ex: "1.234,56")
+      const valorFormatado = inputSalario.value;
+
+      // Remove os pontos e troca a vírgula por ponto para virar número
+      const salario = parseFloat(valorFormatado.replace(/\./g, '').replace(',', '.'));
+
+      // Pega o valor da porcentagem
+      const porcentagem = parseFloat(inputPorcentagem.value);
+
+      // Faz a conta
+      const resultado = (porcentagem / 100) * salario;
+
+      // Formata com 3 casas decimais
+      const resultadoFormatado = resultado.toFixed(3);
+
+      // Mostra na tela
+      pResultado.textContent = `${porcentagem}% de R$${salario.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} é R$${resultadoFormatado}`;
+    });
+  </script>
+</body>
+</html>
