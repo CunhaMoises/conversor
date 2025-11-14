@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-color:#0f172a;
+}
+
+h2,h3,p {
+    color: #1e293b;
+}
+
+input,select {
+    border: 1px solid #4f6f96;
+    border-radius: 8px;
+    outline: none;
+    background-color: #ffff;
+}
+/* --- INPUT E SELECT ----*/
+
+.container-main {
+    background-color: #e6f0fa;
+    border-radius: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin: auto;
+    width: 90vw;
+    height: 90vh;
+    margin-top: 60px;
+}
+
+.header-grid {
+    display: grid;
+    grid-template-columns: 355px 426px;
+    justify-content: center;
+    gap: 6%;
+    justify-items: center;
+}
+.item1 {
+   
+    position: relative;
+    right: 17vh;
+}
+
+.item2 {
+   
+    position: relative;
+    left: 17vh;
+}
+
+.lado-a-lado {
+    display: flex;
+    margin-top: 6vh;
+    width: 69vh;
+
+}
+.p1 {
+    position: absolute;
+    right: 98vh;
+    top: 24vh;
+    font-size: 35px
+}
+
+.p2 {
+    position: absolute;
+    right: 98vh;
+    top: 13vh;
+    font-size: 35px;
+}
+#input1,#input2,#input-valor-item {
+    padding: 5px 6vh 12px 14vh;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+select {
+    border-radius: 10px;
+    font-size: 26px;
+    padding: 8px;
+}
+
+.select2 {
+    display: flex;
+    margin-top: 3vh;
+}
+
+h3 {
+    margin-right: 15px;
+    padding-top: 10px;
+}
+
+.p-select1,.p-select2 {
+    visibility: hidden;
+    margin: 1vh 0 0 20vh;
+}
+
+#h1 {
+    visibility: hidden;
+    color: red;
+    margin: 4vh 0 4vh 50vh;
+    font-size: 4vh;
+}
+
+
+/* ---- VALOR DO ITEM ---- */
+
+.value-item {
+    display: flex;
+    margin: 7vh 0 0 37vh;
+}
+
+h2 {
+    margin: 1vh 3vh 0 0;
+}
+
+.button {
+    margin-left: 1vh;
+    border-radius: 1vh;
+    width: 13vh;
+}
+
+#zerar-campos {
+    margin-left: 1vh;
+    border-radius: 1vh;
+    width: 13vh;
+}
+/* ---- PORCENTAGEM DO SALÁRIO ---- */
+
+.porcentagem-salario {
+    margin: 10vh 0 0 20vh;
+}
+
+.p3 {
+    visibility: hidden;
+    font-size: 3vh;
+    margin-bottom: 3vh;
+}
+
+.p4 {
+    visibility: hidden;
+    font-size: 3vh;
+}
+
+/* ---- QUANTOS SALARIOS ---- */
+
+.parte-baixa {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    width: 58vh;
+
+}
+
+.quantidade-salarios {
+    margin: 2vh 0 0 20vh;
+}
+
+.quantos-salarios1,.quantos-salarios2 {
+    padding: 6px 0vh 6px 12vh;
+    border-radius: 10px;
+    font-size: 23px;
+    margin-top: 2vh;
+}
+
+.video {
+    width: 60vh;
+    margin: -170px 0px 0vh 102vh;
+    
+}
+
+.video iframe {
+    border-radius: 40px;
+}
+
+.p5,.p6 {
+    font-size: 2vh;
+    margin-left: 3vh;
+    margin-top: 2vh
+}
+
+.p7 {
+    display: inline-block;
+    font-size: 2.39vh;
+    margin: 0 0 2vh 11vh;
+}

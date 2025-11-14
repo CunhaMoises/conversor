@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container-main">
+        <div class="header-grid">
+
+            <div class="item1">
+                <div class="lado-a-lado">
+                    <h3>Salário 1</h3>
+                    <input class="input" id="input1" name="salário1" type="text"  maxlength="9" placeholder="Digite o Salário">
+                </div>
+                <div class="lado-a-lado">
+                    <h3>Salário 2</h3>
+                    <input class="input" id="input2" type="text"  maxlength="9" placeholder="Digite o Salário">
+
+                </div>
+
+            </div>
+            
+            <div class="item2">
+                <div class="lado-a-lado">
+                    <h3>País 1</h3>
+                    <select name="pais1" id="pais1">
+                        <option value="">selecione o país para ter o salário mínimo</option>
+                        <option value="brasil">Brasil</option>
+                        <option value="estados-unidos">Estados Unidos</option>
+                        <option value="japao">Japão</option>
+                        <option value="portugal">Portugal</option>
+                        <option value="alemanha">Alemanha</option>
+                        <option value="franca">França</option>
+                    </select>
+                </div>
+                <p class="p-select1">alguma coisa</p>
+                <div class="select2">
+                    <h3>País 2</h3>
+                    <select name="pais2" id="pais2">
+                        <option value="">selecione o país para ter o salário mínimo</option>
+                        <option value="brasil">Brasil</option>
+                        <option value="estados-unidos">Estados Unidos</option>
+                        <option value="japao">Japão</option>
+                        <option value="portugal">Portugal</option>
+                        <option value="alemanha">Alemanha</option>
+                        <option value="franca">França</option>
+                    </select>
+
+                </div>
+                <p class="p-select2">alguma coisa</p>
+            </div>
+            
+        </div>
+        <p class="p1">ou</p>
+        <p class="p2">ou</p>
+        <h1 id="h1"></h1>
+        <div class="value-item">
+            <h2>Valor do item</h2>
+            <input class="input" id="input-valor-item" type="text"  maxlength="9" placeholder="Digite o valor do item">
+            <button class="button">Converter</button>
+            <button id="zerar-campos">zerar</button>
+        </div>
+        <div class="porcentagem-salario">
+            <p class="p3"> alguma coisa</p>
+            <p class="p4"> alguma coisa</p>
+        </div>
+        <div class="parte-baixa">
+            <div class="quantidade-salarios">
+                <div class="flex">
+                    <input class="quantos-salarios1" type="number" placeholder="alguma coisa">
+                    <p class="p5"> = 1 salário</p>
+                </div>
+                <div class="flex">
+                    <input class="quantos-salarios2" type="number" placeholder="alguma coisa">
+                    <p class="p6"> = 2 salário</p>
+                </div>
+            </div>
+            <div class="video">
+                <p class="p7">como usar a ferramenta?</p>
+                <iframe width="500" height="328" src="https://www.youtube.com/embed/N5Uqo68EvpI?si=f1HO0eoDzMLqZrF4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/inputmask"></script>
+    <script src="index.js"></script>
+</body>
+</html>
