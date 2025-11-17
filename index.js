@@ -8,20 +8,47 @@ const salariosMinimos = {
 
 };
 
+const moedas = {
+    "real" : "R$",
+    "dolar" : "$",
+    "ien" : "¥",
+    "euro": "€",
+}
+
+const paisParaMoeda = {
+  'brasil': 'real',
+  'estados-unidos': 'dolar',
+  'japao': 'ien',
+  'portugal': 'euro',
+  'alemanha': 'euro',
+  'franca': 'euro'
+};
+
+
+
 let comparar = document.querySelector('.button')
 let zerar_Campos = document.getElementById('zerar-campos')
+let calcular_Salario = document.querySelector('.calcular')
 let input = document.querySelectorAll('input')
 
 
 const input1 = document.getElementById('input1');
 const input2 = document.getElementById('input2');
+const input_Quantos_Salarios = document.querySelector('.quantos-salarios2')
+
 const select1 = document.getElementById('pais1');
 const select2 = document.getElementById('pais2');
+let select_Input = document.querySelectorAll('.moeda')
 const valor_Item = document.getElementById('input-valor-item')
+
 let p1 = document.querySelector('.p3')
 let p2 = document.querySelector('.p4')
 let pSelect1 = document.querySelector('.p-select1')
 let pSelect2 = document.querySelector('.p-select2')
+
+const div1 = document.querySelector('.flex-h2')
+const div2 = document.querySelector('.flex')
+const div3 = document.querySelector('.div-final')
 
 //formata a entrada do input
 Inputmask('decimal', {
@@ -62,10 +89,16 @@ function verificarCampos() {
 [input1, input2].forEach(el => el.addEventListener('input', verificarCampos));
 [select1, select2].forEach(el => el.addEventListener('change', verificarCampos));
 
+function esconderDiv () {
+    [div1,div2,div3].forEach (div => {
+        div.style.visibility = 'hidden'
+    })
+}
 
 zerar_Campos.addEventListener('click', ()=> {
     input1.value = ''
     input2.value = ''
+    input_Quantos_Salarios.value = ''
     select1.value = ''
     select2.value = ''
     valor_Item.value = ''
@@ -77,6 +110,13 @@ zerar_Campos.addEventListener('click', ()=> {
     p2.style.visibility = 'hidden'
     pSelect1.style.visibility = 'hidden'
     pSelect2.style.visibility = 'hidden'
+
+    select_Input.forEach(select => {
+        select.value =''
+    })
+
+    esconderDiv()
+
 })
 
 comparar.addEventListener('click', ()=> {
@@ -92,6 +132,13 @@ comparar.addEventListener('click', ()=> {
     let select2_value = select2.value
 
     let h1 = document.getElementById('h1')
+    let h2 = document.querySelector('.aga2')
+    const container = document.querySelector('.container-main')
+    const div1 = document.querySelector('.flex-h2')
+    const div2 = document.querySelector('.flex')
+    let moeda_Input1 = document.querySelectorAll('.moeda')[0].value
+    let moeda_input2 = document.querySelectorAll('.moeda')[1].value
+
     
     let valorItem = document.getElementById('input-valor-item').value
 
@@ -99,23 +146,47 @@ comparar.addEventListener('click', ()=> {
     let salario_Pais2 = salariosMinimos[select2_value]
 
 
-    let p1 = document.querySelector('.p3')
-    let p2 = document.querySelector('.p4')
+    let p_porcentagem1 = document.querySelector('.p3')
+    let p_porcentagem2 = document.querySelector('.p4')
     let pSelect1 = document.querySelector('.p-select1')
     let pSelect2 = document.querySelector('.p-select2')
+    let p_salario1 = document.querySelector('.p5')
 
     //converte o texto formatado pelo InputMask
     input1_value = parseFloat(input1_value.replace(/\./g,"").replace(",","."))
     input2_value = parseFloat(input2_value.replace(/\./g,"").replace(",","."))
     valorItem = parseFloat(valorItem.replace(/\./g,"").replace(",","."))
 
+    function mudarContainer () {
+
+        container.style.height = '93vh'
+        container.style.marginTop = '50px'
+    }
+
+    function mostrarDiv () {
+        [div1,div2].forEach(div => {
+            div.style.visibility = 'visible'
+        })
+    }
+
+    function getMoedaSelect (pais) {
+        return moedas[paisParaMoeda[pais]]
+    }
+
+    function getMoedaInput (moeda) {
+        return moedas[moeda]
+    }
 
     let salario_Conta1 
     let salario_Conta2
 
+    let moeda1
+    let moeda2
+
+    
     // verifica todos os campos zerados
     if (!input1_value && !input2_value && !select1_value && !select2_value) {
-
+        mudarContainer ()
         h1.style.visibility = 'visible'
         h1.textContent = 'Preencha algum campo'
         h1.style.margin = '4vh 0 4vh 65vh'
@@ -124,12 +195,12 @@ comparar.addEventListener('click', ()=> {
 
     // verifica os campos com os mesmo valores
     if(input1_value === input2_value || select1_value === select2_value && select1_value !== '') {
-        
+        mudarContainer ()
         h1.style.margin = '4vh 0 4vh 50vh'
-        h1.style.display = 'visible'
+        h1.style.visibility = 'visible'
         h1.textContent = 'Os campos não podem ter o mesmo valor'
-        p1.style.visibility = 'hidden'
-        p2.style.visibility = 'hidden'
+        p_porcentagem1.style.visibility = 'hidden'
+        p_porcentagem2.style.visibility = 'hidden'
     }
 
     // verifica input ou valor-item zerado
@@ -137,7 +208,7 @@ comparar.addEventListener('click', ()=> {
         (!input1_value || !input2_value || !valorItem)  && 
         (!select1_value && !select2_value)
         ) {
-        
+        mudarContainer ()
         h1.style.visibility = 'visible'
         h1.textContent = 'Não pode haver campos vazios'
         h1.style.margin = '4vh 0 4vh 58vh'
@@ -149,7 +220,7 @@ comparar.addEventListener('click', ()=> {
         (!select1_value || !select2_value || !valorItem)  && 
         (!input1_value && !input2_value)
         ) {
-        
+        mudarContainer ()
         h1.style.visibility = 'visible'
         h1.textContent = 'Não pode haver campos vazios'
         h1.style.margin = '4vh 0 4vh 58vh'
@@ -161,16 +232,18 @@ comparar.addEventListener('click', ()=> {
         (select1_value && select2_value && valorItem) &&
         (select1_value !== select2_value)
         ) {
-       
-       h1.style.visibility = 'hidden'
-       salario_Conta1 = salariosMinimos[select1_value]
-       salario_Conta2 = salariosMinimos[select2_value]
-       pSelect1.style.visibility = 'visible'
-       pSelect2.style.visibility = 'visible'
-       pSelect1.textContent = `Salário mínimo estimado em ${salariosMinimos[select1_value]}`
-       pSelect2.textContent = `Salário mínimo estimado em ${salariosMinimos[select2_value]}`
-       p1.style.visibility = 'visible'
-       p2.style.visibility = 'visible'  
+        mostrarDiv ()
+        h1.style.visibility = 'hidden'
+        salario_Conta1 = salariosMinimos[select1_value]
+        salario_Conta2 = salariosMinimos[select2_value]
+        moeda1 = getMoedaSelect(select1_value)
+        moeda2 = getMoedaSelect(select2_value)
+        pSelect1.style.visibility = 'visible'
+        pSelect2.style.visibility = 'visible'
+        pSelect1.textContent = `Salário mínimo estimado em ${salariosMinimos[select1_value]}`
+        pSelect2.textContent = `Salário mínimo estimado em ${salariosMinimos[select2_value]}`
+        p_porcentagem1.style.visibility = 'visible'
+        p_porcentagem2.style.visibility = 'visible'  
    }
 
     // faz conta usando os valores do input
@@ -178,12 +251,14 @@ comparar.addEventListener('click', ()=> {
         (input1_value  && input2_value && valorItem) && 
         (input1_value!== input2_value)
         ) {
-        
+        mostrarDiv ()
         h1.style.visibility = 'hidden'
         salario_Conta1 = input1_value
         salario_Conta2 = input2_value
-        p1.style.visibility = 'visible'
-        p2.style.visibility = 'visible'
+        moeda1 = getMoedaInput(moeda_Input1)
+        moeda2 = getMoedaInput(moeda_input2)
+        p_porcentagem1.style.visibility = 'visible'
+        p_porcentagem2.style.visibility = 'visible'
 
     } 
 
@@ -217,13 +292,57 @@ comparar.addEventListener('click', ()=> {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
     })
+
     
-    
+    let quantos_salarios1 = Math.ceil(valorItem/salario_Conta1)
+    let palavra = quantos_salarios1 > 1 ? 'salários' : 'salário';
+
     // mostra na tela os valores
-    p1.textContent= `${valorItemFormatado} equivalem a ${formatadoPorcentagem}% do salário 1 `
-    p2.textContent = `${formatadoPorcentagem}% do salário 2 é ${abc}`        
+    p_porcentagem1.textContent= `${moeda1} ${valorItemFormatado} equivalem a  ${formatadoPorcentagem}% do salário 1 `
+    p_porcentagem2.textContent = `${formatadoPorcentagem}% do salário 2 é ${moeda2} ${abc}`
     
+    h2.textContent = `Para comprar um item no valor de ${moeda1} ${valorItemFormatado} precisa de ${quantos_salarios1} ${palavra}`
     
 })
+
+calcular_Salario.addEventListener('click', ()=> {
+    let input = document.querySelector('.quantos-salarios2').value
+    let input_salario = document.getElementById('input2').value
+    let select = document.getElementById('pais2').value
+    let h2 = document.querySelectorAll('.aga2')[1]
+    let div = document.querySelector('.div-final')
+    let moeda_input = document.querySelectorAll('.moeda')[1].value
+
+    input = parseFloat(input.replace(/\./g,"").replace(",","."))
+    input_salario = parseFloat(input_salario.replace(/\./g,"").replace(",","."))
+    
+    function getMoedasInput (moeda) {
+        return moedas[moeda]
+    }
+
+    function getMoedasSelect (pais) {
+        return moedas[paisParaMoeda[pais]]
+    }
+
+    let conta_Salario
+    let moeda
+    
+    if (input_salario && !select) {
+        conta_Salario = input_salario
+        moeda = getMoedasInput(moeda_input)
+    } else {
+        conta_Salario = salariosMinimos[select]
+        moeda = getMoedasSelect(select)
+    }   
+    
+    let quantos_Salarios = Math.ceil (input/conta_Salario)
+    let palavra = quantos_Salarios > 1 ? 'salários' : 'salário'
+
+
+    div.style.visibility = 'visible'
+    h2.textContent = `Para comprar um item no valor de ${moeda} ${input} precisa de  ${quantos_Salarios} ${palavra}`
+    
+})
+
 
 

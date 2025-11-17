@@ -29,7 +29,7 @@ input,select {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     margin: auto;
     width: 90vw;
-    height: 90vh;
+    height: 87vh;
     margin-top: 60px;
 }
 
@@ -49,26 +49,30 @@ input,select {
 .item2 {
    
     position: relative;
-    left: 17vh;
+    left: 31vh;
 }
 
 .lado-a-lado {
     display: flex;
     margin-top: 6vh;
-    width: 69vh;
+    width: 81vh;
 
+}
+
+#moeda {
+    margin-left: 1vh;
 }
 .p1 {
     position: absolute;
-    right: 98vh;
-    top: 24vh;
+    right: 92vh;
+    top: 23.8vh;
     font-size: 35px
 }
 
 .p2 {
     position: absolute;
-    right: 98vh;
-    top: 13vh;
+    right: 92vh;
+    top: 12.3vh;
     font-size: 35px;
 }
 #input1,#input2,#input-valor-item {
@@ -154,20 +158,30 @@ h2 {
 
 .flex {
     display: flex;
+    visibility: hidden;
     align-items: center;
-    width: 58vh;
+    width: 93vh;
+}
 
+.flex-h2 {
+    display: flex;
+    align-items: center;
+    visibility: hidden;
+    width: 89vh;
+    border-top: 1px solid black;
 }
 
 .quantidade-salarios {
     margin: 2vh 0 0 20vh;
+    border-top: 0 solid black;
 }
 
 .quantos-salarios1,.quantos-salarios2 {
-    padding: 6px 0vh 6px 12vh;
+    padding: 6px 12vh 6px 18vh;
     border-radius: 10px;
     font-size: 23px;
     margin-top: 2vh;
+    
 }
 
 .video {
@@ -180,14 +194,38 @@ h2 {
     border-radius: 40px;
 }
 
-.p5,.p6 {
-    font-size: 2vh;
-    margin-left: 3vh;
+.p5 {
+    font-size: 2.5vh;
+    margin-left: 1vh;
     margin-top: 2vh
 }
 
-.p7 {
+.p6 {
     display: inline-block;
     font-size: 2.39vh;
     margin: 0 0 2vh 11vh;
+}
+
+.aga2 {
+    font-size: 2.5vh;
+    margin: 3vh 0 1vh;
+}
+
+.calcular {
+    padding: 1vh;
+    margin: 1.7vh 7px 0 1vh;
+    border-radius: 0.6vh;
+    width: 9vh;
+}
+
+.div-final {
+    display: flex;
+    visibility: hidden;
+    width: 90vh;
+}
+
+.p-final {
+    font-size: 2.5vh;
+    margin-left: 1vh;
+    margin-top: 3vh
 }
