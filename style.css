@@ -59,20 +59,20 @@ input,select {
 
 }
 
-#moeda {
+.moeda {
     margin-left: 1vh;
 }
 .p1 {
     position: absolute;
-    right: 92vh;
-    top: 23.8vh;
+    right: 96vh;
+    top: 20.8vh;
     font-size: 35px
 }
 
 .p2 {
     position: absolute;
-    right: 92vh;
-    top: 12.3vh;
+    right: 96vh;
+    top: 10.3vh;
     font-size: 35px;
 }
 #input1,#input2,#input-valor-item {

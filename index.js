@@ -79,6 +79,9 @@ function verificarCampos() {
   if (algum_Select_Preenchido) {
     input1.disabled = true;
     input2.disabled = true;
+    select_Input.forEach(el => {
+        el.disabled = true
+    })
   } else {
     input1.disabled = false;
     input2.disabled = false;
@@ -136,8 +139,8 @@ comparar.addEventListener('click', ()=> {
     const container = document.querySelector('.container-main')
     const div1 = document.querySelector('.flex-h2')
     const div2 = document.querySelector('.flex')
-    let moeda_Input1 = document.querySelectorAll('.moeda')[0].value
-    let moeda_input2 = document.querySelectorAll('.moeda')[1].value
+    let moeda_Select1 = document.querySelectorAll('.moeda')[0].value
+    let moeda_Select2 = document.querySelectorAll('.moeda')[1].value
 
     
     let valorItem = document.getElementById('input-valor-item').value
@@ -188,33 +191,22 @@ comparar.addEventListener('click', ()=> {
     if (!input1_value && !input2_value && !select1_value && !select2_value) {
         mudarContainer ()
         h1.style.visibility = 'visible'
-        h1.textContent = 'Preencha algum campo'
-        h1.style.margin = '4vh 0 4vh 65vh'
+        h1.textContent = 'Preencha os campos corretamente'
+        h1.style.margin = '4vh 0 4vh 58vh'
         return
     }
 
     // verifica os campos com os mesmo valores
-    if(input1_value === input2_value || select1_value === select2_value && select1_value !== '') {
+    if(moeda_Select1 === moeda_Select2 || select1_value === select2_value && select1_value !== '') {
         mudarContainer ()
-        h1.style.margin = '4vh 0 4vh 50vh'
+        esconderDiv ()
+        h1.style.margin = '4vh 0 4vh 14vh'
         h1.style.visibility = 'visible'
-        h1.textContent = 'Os campos não podem ter o mesmo valor'
+        h1.textContent = 'Os campos país ou moedas não podem estar vazios ou terem o mesmo valor'
         p_porcentagem1.style.visibility = 'hidden'
         p_porcentagem2.style.visibility = 'hidden'
     }
-
-    // verifica input ou valor-item zerado
-    if (
-        (!input1_value || !input2_value || !valorItem)  && 
-        (!select1_value && !select2_value)
-        ) {
-        mudarContainer ()
-        h1.style.visibility = 'visible'
-        h1.textContent = 'Não pode haver campos vazios'
-        h1.style.margin = '4vh 0 4vh 58vh'
-        
-    }
-
+    
     // verifica select ou valor-item zerado
     if (
         (!select1_value || !select2_value || !valorItem)  && 
@@ -222,10 +214,22 @@ comparar.addEventListener('click', ()=> {
         ) {
         mudarContainer ()
         h1.style.visibility = 'visible'
-        h1.textContent = 'Não pode haver campos vazios'
+        h1.textContent = 'Não pode haver campos vazios1'
         h1.style.margin = '4vh 0 4vh 58vh'
         
     }
+
+    // verifica input,moeda ou valor-item zerado
+    if (
+        (!input1_value || !input2_value || moeda_Select1 === "" || moeda_Select2 === "" || !valorItem)  && 
+        (select1_value === "" && select2_value === "")
+        ) {
+        mudarContainer ()
+        h1.style.visibility = 'visible'
+        h1.textContent = 'Não pode haver campos vazios'
+        h1.style.margin = '4vh 0 4vh 58vh'
+        return
+    } 
 
     // faz conta usando os valores do select
     if (
@@ -249,14 +253,14 @@ comparar.addEventListener('click', ()=> {
     // faz conta usando os valores do input
     if (
         (input1_value  && input2_value && valorItem) && 
-        (input1_value!== input2_value)
+        (moeda_Select1!== moeda_Select2)
         ) {
         mostrarDiv ()
         h1.style.visibility = 'hidden'
         salario_Conta1 = input1_value
         salario_Conta2 = input2_value
-        moeda1 = getMoedaInput(moeda_Input1)
-        moeda2 = getMoedaInput(moeda_input2)
+        moeda1 = getMoedaInput(moeda_Select1)
+        moeda2 = getMoedaInput(moeda_Select2)
         p_porcentagem1.style.visibility = 'visible'
         p_porcentagem2.style.visibility = 'visible'
 
