@@ -94,7 +94,7 @@ function verificarCampos() {
 
 function esconderDiv () {
     [div1,div2,div3].forEach (div => {
-        div.style.visibility = 'hidden'
+        div.style.display = 'none'
     })
 }
 
@@ -109,10 +109,10 @@ zerar_Campos.addEventListener('click', ()=> {
     input2.disabled = false
     select1.disabled = false
     select2.disabled = false
-    p1.style.visibility = 'hidden'
-    p2.style.visibility = 'hidden'
-    pSelect1.style.visibility = 'hidden'
-    pSelect2.style.visibility = 'hidden'
+    p1.style.display = 'none'
+    p2.style.display = 'none'
+    pSelect1.style.display = 'none'
+    pSelect2.style.display = 'none'
 
     select_Input.forEach(select => {
         select.value =''
@@ -153,7 +153,7 @@ comparar.addEventListener('click', ()=> {
     let p_porcentagem2 = document.querySelector('.p4')
     let pSelect1 = document.querySelector('.p-select1')
     let pSelect2 = document.querySelector('.p-select2')
-    let p_salario1 = document.querySelector('.p5')
+    
 
     //converte o texto formatado pelo InputMask
     input1_value = parseFloat(input1_value.replace(/\./g,"").replace(",","."))
@@ -168,7 +168,7 @@ comparar.addEventListener('click', ()=> {
 
     function mostrarDiv () {
         [div1,div2].forEach(div => {
-            div.style.visibility = 'visible'
+            div.style.display = 'flex'
         })
     }
 
@@ -190,7 +190,7 @@ comparar.addEventListener('click', ()=> {
     // verifica todos os campos zerados
     if (!input1_value && !input2_value && !select1_value && !select2_value) {
         mudarContainer ()
-        h1.style.visibility = 'visible'
+        h1.style.display = 'block'
         h1.textContent = 'Preencha os campos corretamente'
         h1.style.margin = '4vh 0 4vh 58vh'
         return
@@ -200,11 +200,11 @@ comparar.addEventListener('click', ()=> {
     if(moeda_Select1 === moeda_Select2 || select1_value === select2_value && select1_value !== '') {
         mudarContainer ()
         esconderDiv ()
-        h1.style.margin = '4vh 0 4vh 14vh'
-        h1.style.visibility = 'visible'
+        h1.style.margin = '80px 0px 30px 163px'
+        h1.style.display = 'block'
         h1.textContent = 'Os campos país ou moedas não podem estar vazios ou terem o mesmo valor'
-        p_porcentagem1.style.visibility = 'hidden'
-        p_porcentagem2.style.visibility = 'hidden'
+        p_porcentagem1.style.display = 'none'
+        p_porcentagem2.style.display = 'none'
     }
     
     // verifica select ou valor-item zerado
@@ -213,9 +213,9 @@ comparar.addEventListener('click', ()=> {
         (!input1_value && !input2_value)
         ) {
         mudarContainer ()
-        h1.style.visibility = 'visible'
+        h1.style.display = 'block'
         h1.textContent = 'Não pode haver campos vazios1'
-        h1.style.margin = '4vh 0 4vh 58vh'
+        h1.style.margin = '81px 0px 4px 715px'
         
     }
 
@@ -225,9 +225,9 @@ comparar.addEventListener('click', ()=> {
         (select1_value === "" && select2_value === "")
         ) {
         mudarContainer ()
-        h1.style.visibility = 'visible'
+        h1.style.display = 'block'
         h1.textContent = 'Não pode haver campos vazios'
-        h1.style.margin = '4vh 0 4vh 58vh'
+        h1.style.margin = '81px 0px 4px 715px'
         return
     } 
 
@@ -237,17 +237,17 @@ comparar.addEventListener('click', ()=> {
         (select1_value !== select2_value)
         ) {
         mostrarDiv ()
-        h1.style.visibility = 'hidden'
+        h1.style.display = 'none'
         salario_Conta1 = salariosMinimos[select1_value]
         salario_Conta2 = salariosMinimos[select2_value]
         moeda1 = getMoedaSelect(select1_value)
         moeda2 = getMoedaSelect(select2_value)
-        pSelect1.style.visibility = 'visible'
-        pSelect2.style.visibility = 'visible'
+        pSelect1.style.display = 'block'
+        pSelect2.style.display = 'block'
         pSelect1.textContent = `Salário mínimo estimado em ${salariosMinimos[select1_value]}`
         pSelect2.textContent = `Salário mínimo estimado em ${salariosMinimos[select2_value]}`
-        p_porcentagem1.style.visibility = 'visible'
-        p_porcentagem2.style.visibility = 'visible'  
+        p_porcentagem1.style.display = 'block'
+        p_porcentagem2.style.display = 'block'  
    }
 
     // faz conta usando os valores do input
@@ -256,13 +256,13 @@ comparar.addEventListener('click', ()=> {
         (moeda_Select1!== moeda_Select2)
         ) {
         mostrarDiv ()
-        h1.style.visibility = 'hidden'
+        h1.style.display = 'none'
         salario_Conta1 = input1_value
         salario_Conta2 = input2_value
         moeda1 = getMoedaInput(moeda_Select1)
         moeda2 = getMoedaInput(moeda_Select2)
-        p_porcentagem1.style.visibility = 'visible'
-        p_porcentagem2.style.visibility = 'visible'
+        p_porcentagem1.style.display = 'block'
+        p_porcentagem2.style.display = 'block'
 
     } 
 
@@ -343,7 +343,7 @@ calcular_Salario.addEventListener('click', ()=> {
     let palavra = quantos_Salarios > 1 ? 'salários' : 'salário'
 
 
-    div.style.visibility = 'visible'
+    div.style.display = 'block'
     h2.textContent = `Para comprar um item no valor de ${moeda} ${input} precisa de  ${quantos_Salarios} ${palavra}`
     
 })

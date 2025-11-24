@@ -30,7 +30,7 @@ input,select {
     margin: auto;
     width: 90vw;
     height: 87vh;
-    margin-top: 60px;
+    margin-top: 70px;
 }
 
 .header-grid {
@@ -43,40 +43,41 @@ input,select {
 .item1 {
    
     position: relative;
-    right: 17vh;
+    right: 220px;
 }
 
 .item2 {
    
     position: relative;
-    left: 31vh;
+    left: 431px;
 }
 
 .lado-a-lado {
     display: flex;
-    margin-top: 6vh;
-    width: 81vh;
-
+    margin-top: 70px;
+    width: 80vh;
+    height: 3.9rem;
 }
 
 .moeda {
-    margin-left: 1vh;
+    margin-left: 12px;
 }
+
 .p1 {
     position: absolute;
-    right: 96vh;
-    top: 20.8vh;
+    right: 73rem;
+    top: 17rem;
     font-size: 35px
 }
 
 .p2 {
     position: absolute;
-    right: 96vh;
-    top: 10.3vh;
+    right: 73rem;
+    top: 9rem;
     font-size: 35px;
 }
 #input1,#input2,#input-valor-item {
-    padding: 5px 6vh 12px 14vh;
+    padding: 5px 80px 12px 125px;
     border-radius: 10px;
     font-size: 25px;
 }
@@ -89,7 +90,8 @@ select {
 
 .select2 {
     display: flex;
-    margin-top: 3vh;
+    margin-top: 70px;
+    height: 3.9rem;
 }
 
 h3 {
@@ -98,15 +100,16 @@ h3 {
 }
 
 .p-select1,.p-select2 {
-    visibility: hidden;
-    margin: 1vh 0 0 20vh;
+    display: none;
+    margin: 14px 0 0 200px;
+    font-size: 1.3rem;
 }
 
 #h1 {
-    visibility: hidden;
+    display: none;
     color: red;
     margin: 4vh 0 4vh 50vh;
-    font-size: 4vh;
+    font-size: 3rem;
 }
 
 
@@ -114,39 +117,46 @@ h3 {
 
 .value-item {
     display: flex;
-    margin: 7vh 0 0 37vh;
+    margin: 66px 0 0 506px;
 }
 
 h2 {
-    margin: 1vh 3vh 0 0;
+    margin: 14px 23px 0 0;
 }
 
 .button {
-    margin-left: 1vh;
-    border-radius: 1vh;
-    width: 13vh;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 144px;
+    height: 62px;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
 }
 
 #zerar-campos {
-    margin-left: 1vh;
-    border-radius: 1vh;
-    width: 13vh;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 144px;
+    height: 62px;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
 }
 /* ---- PORCENTAGEM DO SALÁRIO ---- */
 
 .porcentagem-salario {
-    margin: 10vh 0 0 20vh;
+    margin: 97px 0 0 241px;
 }
 
 .p3 {
-    visibility: hidden;
-    font-size: 3vh;
-    margin-bottom: 3vh;
+    display: none;
+    font-size: 39px;
+    margin-bottom: 20px;
 }
 
 .p4 {
-    visibility: hidden;
-    font-size: 3vh;
+    display: none;
+    margin-top: 36px;
+    font-size: 39px;
 }
 
 /* ---- QUANTOS SALARIOS ---- */
@@ -157,75 +167,121 @@ h2 {
 }
 
 .flex {
-    display: flex;
-    visibility: hidden;
+    display: none;
     align-items: center;
-    width: 93vh;
+    
 }
 
 .flex-h2 {
-    display: flex;
+    display: none;
     align-items: center;
-    visibility: hidden;
-    width: 89vh;
+    width: 61.5rem;
     border-top: 1px solid black;
+    margin-top: 30px;
 }
 
 .quantidade-salarios {
-    margin: 2vh 0 0 20vh;
+    margin: 20px 0 0 240px;
     border-top: 0 solid black;
 }
 
 .quantos-salarios1,.quantos-salarios2 {
-    padding: 6px 12vh 6px 18vh;
+    padding: 13px 100px 13px 120px;
     border-radius: 10px;
     font-size: 23px;
-    margin-top: 2vh;
+    margin-top: 20px;
     
 }
 
 .video {
-    width: 60vh;
-    margin: -170px 0px 0vh 102vh;
+    width: 30%;
+    position: absolute;
+    bottom: 100px;
+    right: 0vh;
     
 }
 
 .video iframe {
     border-radius: 40px;
+    
 }
 
-.p5 {
-    font-size: 2.5vh;
-    margin-left: 1vh;
-    margin-top: 2vh
-}
+
 
 .p6 {
     display: inline-block;
-    font-size: 2.39vh;
-    margin: 0 0 2vh 11vh;
+    font-size: 30px;
+    margin: 0 0 20px 90px;
 }
 
 .aga2 {
-    font-size: 2.5vh;
-    margin: 3vh 0 1vh;
+    font-size: 30px;
+    margin: 20px 0 10px;
+    width: 67rem;
 }
 
 .calcular {
-    padding: 1vh;
-    margin: 1.7vh 7px 0 1vh;
-    border-radius: 0.6vh;
-    width: 9vh;
+    padding: 14px;
+    margin: 20px 7px 0 10px;
+    border-radius: 9px;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
 }
 
 .div-final {
-    display: flex;
-    visibility: hidden;
-    width: 90vh;
+    display: none;
+    width: 57rem;
 }
 
-.p-final {
-    font-size: 2.5vh;
-    margin-left: 1vh;
-    margin-top: 3vh
+
+
+/* -------- MEDIA QUERIES -------- */
+
+@media (max-width: 1880px) {
+    .video iframe {
+        width: 400px;
+        height: 300px;
+    }
+
+    .lado-a-lado {
+        width: 88vh;
+    }
+
+    .p1 {
+        top: 23.8vh;
+        right: 99vh;
+    }
+
+    .p2 {
+        right: 99vh;
+        top: 11.3vh;
+    }
+}
+
+@media (max-width: 1500px) {
+    .container-main {
+        height: 180vh;
+    }
+    .header-grid {
+        grid-template-rows:355px 426px;
+        grid-template-columns: unset;
+    }
+    .item1 {
+        right: 0;
+    }
+
+    .item2 {
+        left: 0;
+        top: -5vh;
+    }
+
+    .p1 {
+        top: 37.8vh;
+        right: 87vh;
+    }
+
+    .p2 {
+        right: 87vh;
+        top: 45.3vh;
+    }
 }
