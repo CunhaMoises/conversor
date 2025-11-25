@@ -116,6 +116,7 @@ zerar_Campos.addEventListener('click', ()=> {
 
     select_Input.forEach(select => {
         select.value =''
+        select.disabled = false
     })
 
     esconderDiv()
@@ -189,18 +190,14 @@ comparar.addEventListener('click', ()=> {
     
     // verifica todos os campos zerados
     if (!input1_value && !input2_value && !select1_value && !select2_value) {
-        mudarContainer ()
         h1.style.display = 'block'
         h1.textContent = 'Preencha os campos corretamente'
-        h1.style.margin = '4vh 0 4vh 58vh'
         return
     }
 
     // verifica os campos com os mesmo valores
     if(moeda_Select1 === moeda_Select2 || select1_value === select2_value && select1_value !== '') {
-        mudarContainer ()
         esconderDiv ()
-        h1.style.margin = '80px 0px 30px 163px'
         h1.style.display = 'block'
         h1.textContent = 'Os campos país ou moedas não podem estar vazios ou terem o mesmo valor'
         p_porcentagem1.style.display = 'none'
@@ -212,10 +209,8 @@ comparar.addEventListener('click', ()=> {
         (!select1_value || !select2_value || !valorItem)  && 
         (!input1_value && !input2_value)
         ) {
-        mudarContainer ()
         h1.style.display = 'block'
         h1.textContent = 'Não pode haver campos vazios1'
-        h1.style.margin = '81px 0px 4px 715px'
         
     }
 
@@ -224,10 +219,8 @@ comparar.addEventListener('click', ()=> {
         (!input1_value || !input2_value || moeda_Select1 === "" || moeda_Select2 === "" || !valorItem)  && 
         (select1_value === "" && select2_value === "")
         ) {
-        mudarContainer ()
         h1.style.display = 'block'
         h1.textContent = 'Não pode haver campos vazios'
-        h1.style.margin = '81px 0px 4px 715px'
         return
     } 
 

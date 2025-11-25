@@ -35,27 +35,23 @@ input,select {
 
 .header-grid {
     display: grid;
-    grid-template-columns: 355px 426px;
-    justify-content: center;
-    gap: 6%;
+    grid-template-columns:965px 360px 825px;
     justify-items: center;
 }
-.item1 {
-   
-    position: relative;
-    right: 220px;
+
+
+.div-ou {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 60px;
 }
 
-.item2 {
-   
-    position: relative;
-    left: 431px;
-}
 
 .lado-a-lado {
     display: flex;
     margin-top: 70px;
-    width: 80vh;
+    width: 49rem;
     height: 3.9rem;
 }
 
@@ -63,18 +59,15 @@ input,select {
     margin-left: 12px;
 }
 
+
+
 .p1 {
-    position: absolute;
-    right: 73rem;
-    top: 17rem;
     font-size: 35px
 }
 
 .p2 {
-    position: absolute;
-    right: 73rem;
-    top: 9rem;
     font-size: 35px;
+    margin-top: 60px;
 }
 #input1,#input2,#input-valor-item {
     padding: 5px 80px 12px 125px;
@@ -105,11 +98,16 @@ h3 {
     font-size: 1.3rem;
 }
 
+.div-h1 {
+    display: flex;
+    justify-content: center;
+    margin: 70px;
+}
 #h1 {
     display: none;
     color: red;
-    margin: 4vh 0 4vh 50vh;
     font-size: 3rem;
+    white-space: nowrap;
 }
 
 
@@ -237,51 +235,83 @@ h2 {
 
 /* -------- MEDIA QUERIES -------- */
 
-@media (max-width: 1880px) {
-    .video iframe {
-        width: 400px;
-        height: 300px;
+
+@media (max-width: 900px) {
+    .container-main {
+        height: 120rem;
+        width: 71rem;
+    }
+    .header-grid {
+        grid-template-rows:208px 257px 333px;
+        grid-template-columns: unset;
     }
 
     .lado-a-lado {
-        width: 88vh;
+        width: 52rem;
     }
 
-    .p1 {
-        top: 23.8vh;
-        right: 99vh;
+    #input1,#input2,#input-valor-item {
+        padding: 5px 80px 12px 150px;
+    }
+    .item1 {
+        margin-right: -11px;
+    }
+
+    .div-ou {
+        margin-right: 40px;
+        margin-top: 85px;
     }
 
     .p2 {
-        right: 99vh;
-        top: 11.3vh;
+        margin-top: -32px;
     }
-}
-
-@media (max-width: 1500px) {
-    .container-main {
-        height: 180vh;
-    }
-    .header-grid {
-        grid-template-rows:355px 426px;
-        grid-template-columns: unset;
-    }
-    .item1 {
-        right: 0;
+    .h3 {
+        margin-right: 12px;
     }
 
     .item2 {
-        left: 0;
-        top: -5vh;
+        margin-left: 100px;
     }
 
-    .p1 {
-        top: 37.8vh;
-        right: 87vh;
+    .div-h1 {
+        margin: 0;
+        flex-wrap: wrap;
+        align-items: center;
+        
     }
 
-    .p2 {
-        right: 87vh;
-        top: 45.3vh;
+    #h1 {
+        text-align: center;
+        white-space: normal;
+    }
+
+    .value-item {
+        margin: 60px 0 0 67px;
+    }
+
+    .quantidade-salarios {
+        margin: 20px 0 0 150px;;
+    }
+
+    .porcentagem-salario {
+        margin: 97px 0 0 150px;
+    }
+
+    .video {
+        width: 45rem;
+        position: relative;
+        top: 335px;
+        left: 5rem;
+    }
+
+    .p6 {
+        font-size: 37px;
+        margin: 0 0 25px 44px;
+    }
+
+    .video iframe {
+        width: 565px;
+        height: 300px;
+    
     }
 }
