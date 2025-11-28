@@ -111,8 +111,8 @@ zerar_Campos.addEventListener('click', ()=> {
     select2.disabled = false
     p1.style.display = 'none'
     p2.style.display = 'none'
-    pSelect1.style.display = 'none'
-    pSelect2.style.display = 'none'
+    pSelect1.style.visibility = 'hidden'
+    pSelect2.style.visibility = 'hidden'
 
     select_Input.forEach(select => {
         select.value =''
@@ -161,11 +161,6 @@ comparar.addEventListener('click', ()=> {
     input2_value = parseFloat(input2_value.replace(/\./g,"").replace(",","."))
     valorItem = parseFloat(valorItem.replace(/\./g,"").replace(",","."))
 
-    function mudarContainer () {
-
-        container.style.height = '93vh'
-        container.style.marginTop = '50px'
-    }
 
     function mostrarDiv () {
         [div1,div2].forEach(div => {
@@ -235,8 +230,8 @@ comparar.addEventListener('click', ()=> {
         salario_Conta2 = salariosMinimos[select2_value]
         moeda1 = getMoedaSelect(select1_value)
         moeda2 = getMoedaSelect(select2_value)
-        pSelect1.style.display = 'block'
-        pSelect2.style.display = 'block'
+        pSelect1.style.visibility = 'visible'
+        pSelect2.style.visibility = 'visible'
         pSelect1.textContent = `Salário mínimo estimado em ${salariosMinimos[select1_value]}`
         pSelect2.textContent = `Salário mínimo estimado em ${salariosMinimos[select2_value]}`
         p_porcentagem1.style.display = 'block'
@@ -295,10 +290,10 @@ comparar.addEventListener('click', ()=> {
     let palavra = quantos_salarios1 > 1 ? 'salários' : 'salário';
 
     // mostra na tela os valores
-    p_porcentagem1.textContent= `${moeda1} ${valorItemFormatado} equivalem a  ${formatadoPorcentagem}% do salário 1 `
-    p_porcentagem2.textContent = `${formatadoPorcentagem}% do salário 2 é ${moeda2} ${abc}`
+    p_porcentagem1.textContent= `${moeda1} ${valorItemFormatado} equivalem a  ${formatadoPorcentagem}% do salário 1.`
+    p_porcentagem2.textContent = `${formatadoPorcentagem}% do salário 2 é ${moeda2} ${abc}.`
     
-    h2.textContent = `Para comprar um item no valor de ${moeda1} ${valorItemFormatado} precisa de ${quantos_salarios1} ${palavra}`
+    h2.textContent = `Para comprar um item no valor de ${moeda1} ${valorItemFormatado} precisa de ${quantos_salarios1} ${palavra}.`
     
 })
 
@@ -337,7 +332,7 @@ calcular_Salario.addEventListener('click', ()=> {
 
 
     div.style.display = 'block'
-    h2.textContent = `Para comprar um item no valor de ${moeda} ${input} precisa de  ${quantos_Salarios} ${palavra}`
+    h2.textContent = `Para comprar um item no valor de ${moeda} ${input} precisa de  ${quantos_Salarios} ${palavra}.`
     
 })
 
